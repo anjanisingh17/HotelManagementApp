@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FoodMenu({showItems,menulist}) {
+function FoodMenu({showItems,menulist,onChangeSearch}) {
   return (
      <>
 <nav className="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
@@ -25,10 +25,8 @@ function FoodMenu({showItems,menulist}) {
             )
            })   
         }
-      
-
-
       </ul>
+      <input className="d-flex" type="search" placeholder="Search" onChange={onChangeSearch} aria-label="Search" />
     </div>
   </div>
 </nav>

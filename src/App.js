@@ -26,12 +26,46 @@ const [itemslist,setItemsList] = useState(itemData);
         setItemsList(itemToShow); 
       }
   }
+
+  //onChangeSearch function
+  const onChangeSearch = (e)=>{
+
+    const searchval = e.target.value;
+    
+        
+      if (searchval === "") {
+        //if query is empty
+        
+          const itemToShow = itemData.filter((curElement)=>{
+            return curElement;
+         })
+
+         setItemsList(itemToShow);
+
+      } else {
+        //returns filtered array
+        const itemToShow = itemData.filter((curElement)=>{
+          return curElement.title.toLowerCase().includes(searchval.toLowerCase());
+       })
+       setItemsList(itemToShow); 
+     }
+
+
+
+  }
+
+
+  //Anjani Singh
+
   
   return (
    
    <>
-   <FoodMenu showItems={showItems} menulist={uniqueList} />
+   
+   <FoodMenu showItems={showItems} menulist={uniqueList} onChangeSearch={onChangeSearch} />
     <FoodItemCard foodItems={itemslist} />   
+    
+            
    </>
 
   );
